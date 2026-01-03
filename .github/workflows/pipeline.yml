@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Debug repo structure
+        run: ls -R
       - name: Install Dependencies
         run: pip install -r sales_forecast_superkart/sales_forecast_project/requirements.txt
       - name: Upload Dataset to Hugging Face Hub
