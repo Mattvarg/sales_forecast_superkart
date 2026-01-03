@@ -31,14 +31,14 @@ numeric_features = [
     'Product_Weight',
     'Product_Allocated_Area',
     'Product_MRP',
-    'Store_Establishment_Year',
-    'Store_Location_City_Type'
+    'Store_Establishment_Year'
 ]
 categorical_features = [
     'Product_Sugar_Content',
     'Product_Type',
     'Store_Size',
-    'Store_Type'
+    'Store_Type',
+    'Store_Location_City_Type'
 ]
 
 # Define the preprocessing steps
