@@ -10,6 +10,7 @@ from huggingface_hub import login, HfApi, create_repo
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 import mlflow
 import os
+import numpy as np
 
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Sales-Forecast-Superkart-Experiment")
@@ -37,8 +38,8 @@ categorical_features = [
     'Product_Sugar_Content',
     'Product_Type',
     'Store_Size',
-    'Store_Type',
-    'Store_Location_City_Type'
+    'Store_Location_City_Type',
+    'Store_Type'
 ]
 
 # Define the preprocessing steps
@@ -79,12 +80,12 @@ with mlflow.start_run():
     # Evaluation with regression metrics
     train_mae = mean_absolute_error(ytrain, y_pred_train)
     train_mse = mean_squared_error(ytrain, y_pred_train)
-    train_rmse = mean_squared_error(ytrain, y_pred_train, squared=False)
+    train_rmse = np.sqrt(mean_squared_error(ytrain, y_pred_train))
     train_r2 = r2_score(ytrain, y_pred_train)
 
     test_mae = mean_absolute_error(ytest, y_pred_test)
     test_mse = mean_squared_error(ytest, y_pred_test)
-    test_rmse = mean_squared_error(ytest, y_pred_test, squared=False)
+    test_rmse = np.sqrt(mean_squared_error(ytest, y_pred_test))
     test_r2 = r2_score(ytest, y_pred_test)
 
     # Log metrics
