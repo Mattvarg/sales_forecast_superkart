@@ -11,7 +11,7 @@ from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 import mlflow
 import os
 
-mlflow.set_tracking_uri("http://localhost:8080")
+mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Sales-Forecast-Superkart-Experiment")
 
 # Hugging Face API authentication
