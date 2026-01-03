@@ -14,7 +14,7 @@ jobs:
       - name: Debug repo structure
         run: ls -R
       - name: Install Dependencies
-        run: pip install -r sales_forecast_superkart/sales_forecast_project/requirements.txt
+        run: pip install -r ${{ github.workspace }}/sales_forecast_project/requirements.txt
       - name: Upload Dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
